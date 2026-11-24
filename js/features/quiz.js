@@ -750,6 +750,12 @@ export function initQuiz() {
     handleQuizClick
   );
 
+  // Pasang event listener untuk Retake Quiz
+  document.addEventListener(
+    "mindquest:retake-quiz",
+    startQuiz
+  );
+
   isQuizInitialized = true;
 
   // Tampilkan halaman pengantar
