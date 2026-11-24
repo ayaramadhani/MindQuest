@@ -73,14 +73,44 @@ export function initNavigation() {
   if (isNavigationInitialized) return;
   isNavigationInitialized = true;
 
-  // Delegasi klik untuk semua elemen beratribut data-view di seluruh halaman
-  document.addEventListener("click", (event) => {
+  // ======================================
+  // RETAKE QUIZ
+  // ======================================
+
+  document.addEventListener("click", event => {
+
+    // Tangani tombol Retake Quiz
+    const retakeTrigger = event.target.closest(
+      '[data-action="retake-quiz"]'
+    );
+
+    if (retakeTrigger) {
+
+      event.preventDefault();
+
+      // Kembali ke halaman Quiz
+      showView("quiz");
+
+      // Jalankan ulang kuis
+      document.dispatchEvent(
+        new Event("mindquest:retake-quiz")
+      );
+
+      return;
+    }
+
+
+    // Navigasi halaman biasa
     const trigger = event.target.closest("[data-view]");
+
     if (!trigger) return;
 
     event.preventDefault();
+
     const viewName = trigger.dataset.view;
+
     showView(viewName);
+
   });
 
   // Toggle menu mobile
