@@ -1,23 +1,37 @@
-import { getStoredData } from "../storage.js";
+import { STORAGE_KEYS, getStoredData } from "../storage.js";
 import { PERSONALITY_TYPES } from "../data/personality-data.js";
 
-const QUIZ_STORAGE_KEY = "mindquest_quiz_result";
 let scoreChartInstance = null;
 
-function getTopTypes(scores) {
-  const entries = Object.entries(scores);
-  if (entries.length === 0) return [];
-  const maxScore = Math.max(...entries.map(([, val]) => val));
-  return entries
-    .filter(([, val]) => val === maxScore)
-    .map(([key]) => key);
+const TYPE_ORDER = [
+  "explorer",
+  "thinker",
+  "creator",
+  "connector"
+];
+
+function getTopTypes(scores = {}) {
+  const maxScore = Math.max(
+    ...TYPE_ORDER.map(type => Number(scores[type] ?? 0))
+  );
+
+  if (!Number.isFinite(maxScore) || maxScore <= 0) {
+    return [];
+  }
+
+  return TYPE_ORDER.filter(
+    type => Number(scores[type] ?? 0) === maxScore
+  );
 }
 
 export function renderPersonalityResult(onRetakeCallback) {
-  const container = document.getElementById("results-content");
+  const container = document.getElementById("results-view");
   if (!container) return;
 
-  const resultData = getStoredData(QUIZ_STORAGE_KEY, null);
+const resultData = getStoredData(
+  STORAGE_KEYS.QUIZ_RESULT,
+  null
+);
 
   if (!resultData || !resultData.scores) {
     container.innerHTML = `
@@ -25,7 +39,13 @@ export function renderPersonalityResult(onRetakeCallback) {
         <div class="mq-empty-icon">🧭</div>
         <h3>Belum Ada Hasil Kepribadian</h3>
         <p>Kamu belum menyelesaikan Personality Quiz. Ikuti kuis singkat 16 pertanyaan untuk melihat tipe dominan dan grafik kepribadianmu.</p>
-        <button id="btn-start-quiz-empty" class="mq-btn mq-btn-primary">Mulai Kuis Sekarang</button>
+        <button id="btn-start-quiz-empty" class="mq-btn mq-btn-primary">Mulai Kuis Sekarang</button><button
+  id="btn-start-quiz-empty"
+  class="mq-btn mq-btn-primary"
+  data-view="quiz"
+>
+  Mulai Kuis Sekarang
+</button>
       </div>
     `;
 
@@ -42,21 +62,32 @@ export function renderPersonalityResult(onRetakeCallback) {
     return;
   }
 
-  const scores = resultData.scores;
-  const topKeys = getTopTypes(scores);
-  const primaryKey = topKeys.includes(resultData.type) ? resultData.type : topKeys[0];
-  const primaryProfile = PERSONALITY_TYPES[primaryKey] || PERSONALITY_TYPES.explorer;
+const scores = resultData.scores;
+const topKeys = getTopTypes(scores);
 
-  const isTie = topKeys.length > 1;
-  const secondaryProfile = isTie ? PERSONALITY_TYPES[topKeys[1]] : null;
+const primaryKey = topKeys.includes(resultData.type)
+  ? resultData.type
+  : (topKeys[0] ?? "explorer");
 
-  const titleDisplay = isTie && secondaryProfile
-    ? `${primaryProfile.title} & ${secondaryProfile.title}`
-    : primaryProfile.title;
+const primaryProfile =
+  PERSONALITY_TYPES[primaryKey] ??
+  PERSONALITY_TYPES.explorer;
 
-  const taglineDisplay = isTie && secondaryProfile
-    ? `Kombinasi seimbang antara ${primaryProfile.title} dan ${secondaryProfile.title}`
-    : primaryProfile.tagline;
+const tiedProfiles = topKeys
+  .map(key => PERSONALITY_TYPES[key])
+  .filter(Boolean);
+
+const isTie = tiedProfiles.length > 1;
+
+const titleDisplay = isTie
+  ? tiedProfiles.map(profile => profile.title).join(" + ")
+  : primaryProfile.title;
+
+const taglineDisplay = isTie
+  ? `Kombinasi seimbang antara ${tiedProfiles
+      .map(profile => profile.title)
+      .join(" dan ")}`
+  : primaryProfile.tagline;
 
   container.innerHTML = `
     <div class="mq-result-grid mq-fade-in">

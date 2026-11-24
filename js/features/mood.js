@@ -164,7 +164,6 @@ export function initMood() {
     resetForm();
     initialized = true;
   }
-  renderMood();
 }
 
 /** Muat ulang riwayat dan grafik. Panggil setiap kali view mood dibuka. */

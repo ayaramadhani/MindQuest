@@ -225,7 +225,7 @@
 
 .mood-button-primary:hover,
 .audio-button:hover {
-  background: #2a4034;
+  background: var(--color-dark-green-hover);
 }
 
 .mood-button-secondary:hover {
@@ -264,7 +264,7 @@
   gap: 14px;
   align-items: start;
   padding: 14px 0;
-  border-bottom: 1px solid rgba(52, 78, 65, 0.15);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .mood-entry:last-child {

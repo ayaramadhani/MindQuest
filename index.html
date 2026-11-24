@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindQuest — Eksplorasi Diri & Self-Care Interaktif</title>
+
+  <!-- Google Fonts: Poppins & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheet Utama -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js untuk visualisasi skor kepribadian (Anggota 2) -->
+ <script
+  src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+  defer
+></script>
+</head>
+<body>
+  <!-- Navbar Global (Tanggung Jawab Anggota 1) -->
+  <header class="mq-navbar">
+    <div class="mq-container mq-navbar-inner">
+      <a href="#home" class="mq-brand" data-view="home" aria-label="Beranda MindQuest">
+        <span class="mq-brand-mark" aria-hidden="true">🌿</span>
+        <span class="mq-brand-text">MindQuest</span>
+      </a>
+
+      <button
+        type="button"
+        class="mq-nav-toggle"
+        id="mq-nav-toggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mq-nav-menu"
+      >
+        <span class="mq-nav-toggle-bar"></span>
+        <span class="mq-nav-toggle-bar"></span>
+        <span class="mq-nav-toggle-bar"></span>
+      </button>
+
+      <nav class="mq-nav-menu" id="mq-nav-menu" aria-label="Navigasi Utama">
+        
+<ul class="mq-nav-list">
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link is-active"
+      data-view="home"
+      data-nav="home">
+      Beranda
+    </button>
+  </li>
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link"
+      data-view="quiz"
+      data-nav="quiz">
+      Kuis Kepribadian
+    </button>
+  </li>
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link"
+      data-view="results"
+      data-nav="results">
+      Hasil Kuis
+    </button>
+  </li>
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link"
+      data-view="mood"
+      data-nav="mood">
+      Pelacak Mood
+    </button>
+  </li>
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link"
+      data-view="challenge"
+      data-nav="challenge">
+      Tantangan Mini
+    </button>
+  </li>
+
+  <li>
+    <button
+      type="button"
+      class="mq-nav-link"
+      data-view="audio"
+      data-nav="audio">
+      Audio Relaksasi
+    </button>
+  </li>
+
+</ul>
+
+      </nav>
+    </div>
+  </header>
+
+<!-- Kontainer Utama Single-Page Application -->
+<main class="mq-main">
+
+  <!-- View 1: Home Page -->
+  <section
+    id="home-view"
+    class="mq-view"
+    aria-labelledby="home-title"
+    hidden>
+  </section>
+
+  <!-- View 2: Personality Quiz -->
+  <section
+    id="quiz-view"
+    class="mq-view"
+    aria-labelledby="quiz-title"
+    hidden>
+  </section>
+
+  <!-- View 3: Personality Result -->
+  <section
+    id="results-view"
+    class="mq-view"
+    aria-labelledby="results-title"
+    hidden>
+  </section>
+
+  <!-- View 4: Mood Tracker -->
+  <section
+    id="mood-view"
+    class="mq-view"
+    aria-labelledby="mood-title"
+    hidden>
+  </section>
+
+  <!-- View 5: Mini Challenge -->
+  <section
+    id="challenge-view"
+    class="mq-view"
+    aria-labelledby="challenge-title"
+    hidden>
+  </section>
+
+  <!-- View 6: Audio Relaxation -->
+  <section
+    id="audio-view"
+    class="mq-view"
+    aria-labelledby="audio-title"
+    hidden>
+  </section>
+
+</main>
+
+  <!-- Footer Global -->
+  <footer class="mq-footer">
+    <div class="mq-container mq-footer-inner">
+      <p class="mq-footer-brand"><strong>MindQuest</strong> — Ruang Eksplorasi Diri &amp; Self-Care Interaktif</p>
+      <p class="mq-footer-note">
+        Catatan: Seluruh konten dan hasil kuis bersifat hiburan serta refleksi diri, bukan alat diagnosis psikologis maupun medis.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Entry Point ES Modules -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
