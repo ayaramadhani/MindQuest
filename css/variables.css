@@ -1,0 +1,45 @@
+
+:root {
+  /* Palet Warna Utama */
+  --color-cream: #F5F0E6;
+  --color-sage: #A3B18A;
+  --color-dark-green: #344E41;
+  --color-white: #FFFFFF;
+
+  /* Warna Interaksi dan Hover */
+  --color-dark-green-hover: #2A4034;
+  --color-sage-hover: #93A47A;
+  --color-dark-green-overlay: rgba(52, 78, 65, 0.08);
+  --color-sage-overlay: rgba(163, 177, 138, 0.35);
+  --color-navbar-background: rgba(245, 240, 230, 0.94);
+
+  /* Variasi Turunan untuk Kontras */
+  --color-sage-soft: rgba(163, 177, 138, 0.18);
+  --color-border: rgba(52, 78, 65, 0.14);
+  --color-text-muted: #52665B;
+  --color-danger: #B84A39;
+  --color-danger-soft: rgba(184, 74, 57, 0.12);
+
+  /* Tipografi */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  /* Ukuran dan Radius */
+  --radius-card: 18px;
+  --radius-button: 12px;
+  --radius-pill: 999px;
+  --content-max: 1200px;
+  --btn-height: 46px;
+
+  /* Spasi */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Bayangan dan Transisi */
+  --shadow-card: 0 8px 24px rgba(52, 78, 65, 0.06);
+  --shadow-hover: 0 12px 28px rgba(52, 78, 65, 0.11);
+  --transition-fast: 0.2s ease;
+}

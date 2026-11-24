@@ -1,0 +1,150 @@
+.mq-container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navbar Global */
+.mq-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-navbar-background);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mq-navbar-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mq-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--color-dark-green);
+}
+
+.mq-brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background-color: var(--color-sage-soft);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.mq-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mq-nav-link {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-button);
+  padding: 0.55rem 0.9rem;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-dark-green);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.mq-nav-link:hover {
+  background: var(--color-sage-overlay);
+}
+
+.mq-nav-link.is-active {
+  background-color: var(--color-dark-green);
+  color: var(--color-white);
+}
+
+.mq-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+}
+
+.mq-nav-toggle-bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-dark-green);
+  border-radius: 2px;
+}
+
+/* Main & View Containers */
+
+.mq-main {
+  flex: 1;
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+/* View ditampilkan melalui atribut hidden dari navigation.js */
+
+.mq-view:not([hidden]) {
+  animation: mqFadeIn 0.25s ease;
+}
+
+@keyframes mqFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer Global */
+.mq-footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+.mq-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.mq-footer-brand {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.mq-footer-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}

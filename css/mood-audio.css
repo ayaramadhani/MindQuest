@@ -1,0 +1,468 @@
+/* mood-audio.css — gaya fitur Mood Tracker dan Audio Relaxation (Anggota 3)
+   Memakai token dari variables.css; nilai setelah koma hanya cadangan.
+   Semua class berawalan .mood- atau .audio- agar tidak bentrok dengan fitur lain. */
+
+.mood-section,
+.audio-section {
+  max-width: var(--content-max, 1200px);
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+  color: var(--color-dark-green, #344E41);
+  font-family: var(--font-body, "DM Sans", sans-serif);
+}
+
+.mood-section [hidden],
+.audio-section [hidden] {
+  display: none;
+}
+
+.mood-title,
+.audio-title {
+  margin: 0 0 8px;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.mood-subtitle,
+.audio-subtitle {
+  max-width: 60ch;
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+
+/* ---------- Mood Tracker: tata letak ---------- */
+
+.mood-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.mood-panel {
+  display: grid;
+  gap: 24px;
+}
+
+.mood-form,
+.mood-card,
+.audio-player,
+.audio-track {
+  background: var(--color-white, #FFFFFF);
+  border-radius: var(--radius-card, 18px);
+}
+
+.mood-form,
+.mood-card {
+  padding: 24px;
+}
+
+.mood-card-title {
+  margin: 0 0 16px;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* ---------- Mood Tracker: formulir ---------- */
+
+.mood-fieldset {
+  margin: 0 0 24px;
+  padding: 0;
+  border: 0;
+}
+
+.mood-legend,
+.mood-label {
+  display: block;
+  margin-bottom: 8px;
+  padding: 0;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.mood-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+  gap: 10px;
+}
+
+.mood-option {
+  display: block;
+  cursor: pointer;
+}
+
+.mood-option-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.mood-option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 6px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  background: var(--color-cream, #F5F0E6);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.mood-option:hover .mood-option-card {
+  border-color: var(--color-sage, #A3B18A);
+}
+
+.mood-option-input:checked + .mood-option-card {
+  background: var(--color-dark-green, #344E41);
+  color: var(--color-white, #FFFFFF);
+  transform: scale(1.04);
+}
+
+.mood-option-input:focus-visible + .mood-option-card {
+  outline: 3px solid var(--color-dark-green, #344E41);
+  outline-offset: 2px;
+}
+
+.mood-option-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.mood-option-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.mood-field {
+  margin-bottom: 20px;
+}
+
+.mood-input,
+.mood-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-dark-green, #344E41);
+  border-radius: 10px;
+  background: var(--color-white, #FFFFFF);
+  color: inherit;
+  font: inherit;
+}
+
+.mood-textarea {
+  resize: vertical;
+}
+
+.mood-input:focus-visible,
+.mood-textarea:focus-visible {
+  outline: 3px solid var(--color-sage, #A3B18A);
+  outline-offset: 1px;
+}
+
+.mood-input:disabled {
+  background: var(--color-cream, #F5F0E6);
+}
+
+.mood-hint {
+  min-height: 1.2em;
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.mood-message,
+.audio-message {
+  min-height: 1.4em;
+  margin: 0 0 12px;
+  font-weight: 500;
+}
+
+.mood-message-error {
+  font-weight: 600;
+}
+
+.mood-message-error::before {
+  content: "Perlu diperbaiki: ";
+}
+
+.mood-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------- Tombol ---------- */
+
+.mood-button,
+.audio-button {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 2px solid var(--color-dark-green, #344E41);
+  border-radius: var(--radius-button, 12px);
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.mood-button-primary,
+.audio-button {
+  background: var(--color-dark-green, #344E41);
+  color: var(--color-white, #FFFFFF);
+}
+
+.mood-button-secondary {
+  background: transparent;
+  color: var(--color-dark-green, #344E41);
+}
+
+.mood-button-primary:hover,
+.audio-button:hover {
+  background: var(--color-dark-green-hover);
+}
+
+.mood-button-secondary:hover {
+  background: var(--color-cream, #F5F0E6);
+}
+
+.mood-button:focus-visible,
+.audio-button:focus-visible,
+.mood-link-button:focus-visible {
+  outline: 3px solid var(--color-sage, #A3B18A);
+  outline-offset: 2px;
+}
+
+/* ---------- Grafik dan riwayat ---------- */
+
+.mood-chart-wrap {
+  position: relative;
+  height: 240px;
+}
+
+.mood-empty {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.mood-history {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mood-entry {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mood-entry:last-child {
+  border-bottom: 0;
+}
+
+.mood-entry-icon {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+.mood-entry-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.mood-entry-note {
+  margin: 4px 0 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.mood-entry-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.mood-link-button {
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  color: var(--color-dark-green, #344E41);
+  font: inherit;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ---------- Audio Relaxation ---------- */
+
+.audio-player {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding: 20px 24px;
+}
+
+.audio-now {
+  flex: 1 1 200px;
+}
+
+.audio-now-label {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.audio-now-title {
+  margin: 2px 0 0;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.audio-equalizer {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 32px;
+}
+
+.audio-equalizer span {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-sage, #A3B18A);
+}
+
+.audio-player-playing .audio-equalizer span {
+  animation: audio-bounce 0.9s ease-in-out infinite alternate;
+}
+
+.audio-player-playing .audio-equalizer span:nth-child(2) { animation-delay: 0.2s; }
+.audio-player-playing .audio-equalizer span:nth-child(3) { animation-delay: 0.4s; }
+.audio-player-playing .audio-equalizer span:nth-child(4) { animation-delay: 0.1s; }
+
+@keyframes audio-bounce {
+  from { height: 6px; }
+  to { height: 32px; }
+}
+
+.audio-volume {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.audio-volume-label {
+  font-weight: 500;
+}
+
+.audio-volume-input {
+  width: 140px;
+  accent-color: var(--color-dark-green, #344E41);
+}
+
+.audio-volume-value {
+  min-width: 3ch;
+  font-variant-numeric: tabular-nums;
+}
+
+.audio-track-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audio-track {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid transparent;
+}
+
+.audio-track-playing {
+  border-color: var(--color-dark-green, #344E41);
+}
+
+.audio-track-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-cream, #F5F0E6);
+  font-size: 1.6rem;
+}
+
+.audio-track-title {
+  margin: 0;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.audio-track-description {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.audio-track .audio-button {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+
+/* ---------- Responsif dan aksesibilitas ---------- */
+
+@media (max-width: 900px) {
+  .mood-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .mood-section,
+  .audio-section {
+    padding: 24px 16px 48px;
+  }
+
+  .mood-entry {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .mood-entry-actions {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-option-card,
+  .mood-button,
+  .audio-button {
+    transition: none;
+  }
+
+  .mood-option-input:checked + .mood-option-card {
+    transform: none;
+  }
+
+  .audio-player-playing .audio-equalizer span {
+    animation: none;
+    height: 18px;
+  }
+}
