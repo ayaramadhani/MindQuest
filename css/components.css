@@ -1,3 +1,4 @@
+
 /* Tombol Bersama (Tinggi Acuan 44-48px, Font Poppins Medium) */
 .mq-btn {
   display: inline-flex;
@@ -129,6 +130,15 @@
    HOME PAGE - MINDQUEST
    Pemilik: Anggota 1
 ========================================= */
+
+/* NAVBAR - LOGO PNG */
+
+.mq-brand-icon img {
+  display: block;
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
 
 /* HERO SECTION */
 
@@ -366,7 +376,15 @@
 }
 
 .home-visual-leaf {
-  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-visual-leaf img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .home-visual-sparkle {

@@ -135,8 +135,12 @@ export function renderHome() {
           <div class="home-visual-bottom">
 
             <span>Grow at your own pace</span>
-            <span class="home-visual-leaf">🌿</span>
-
+              <span class="home-visual-leaf">
+                <img
+                  src="assets/icons/icon-sprout.png"
+                  alt=""
+                >
+              </span>
           </div>
 
         </div>

@@ -31,6 +31,17 @@ const TYPE_ORDER = [
   "connector"
 ];
 
+// ==========================================
+// IKON PNG HASIL KEPRIBADIAN
+// ==========================================
+
+const RESULT_ICONS = {
+  empty: "assets/icons/icon-empty.png",
+  strength: "assets/icons/icon-strength.png",
+  growth: "assets/icons/icon-growth.png",
+  retake: "assets/icons/icon-retake.png"
+};
+
 
 // ==========================================
 // MENENTUKAN TIPE DENGAN SKOR TERTINGGI
@@ -115,7 +126,10 @@ export function renderPersonalityResult() {
         <div class="mq-card mq-empty-state mq-fade-in">
 
           <div class="mq-empty-icon">
-            🧭
+            <img
+              src="${RESULT_ICONS.empty}"
+              alt=""
+            >
           </div>
 
           <h3>
@@ -237,7 +251,11 @@ export function renderPersonalityResult() {
           <div class="mq-result-hero">
 
             <div class="mq-illustration-wrapper mq-float-anim">
-              ${primaryProfile.svgIllustration}
+              <img
+                class="mq-personality-img"
+                src="${primaryProfile.image}"
+                alt="Ilustrasi ${primaryProfile.title}"
+              >
             </div>
 
             <div>
@@ -273,8 +291,13 @@ export function renderPersonalityResult() {
 
             <div class="mq-detail-box">
 
-              <h4>
-                ✨ Kekuatan Utama
+              <h4 class="mq-detail-heading">
+                <img
+                  src="${RESULT_ICONS.strength}"
+                  alt=""
+                  aria-hidden="true"
+                >
+                <span>Kekuatan Utama</span>
               </h4>
 
               <ul>
@@ -288,10 +311,14 @@ export function renderPersonalityResult() {
 
             <div class="mq-detail-box">
 
-              <h4>
-                🌱 Saran Pengembangan
+              <h4 class="mq-detail-heading">
+                <img
+                  src="${RESULT_ICONS.growth}"
+                  alt=""
+                  aria-hidden="true"
+                >
+                <span>Saran Pengembangan</span>
               </h4>
-
               <ul>
                 ${primaryProfile.advice
                   .map(item => `<li>${item}</li>`)
@@ -325,7 +352,12 @@ export function renderPersonalityResult() {
               class="mq-btn mq-btn-secondary"
               data-action="retake-quiz"
             >
-              ↻ Retake Quiz
+              <img
+                class="mq-retake-icon"
+                src="${RESULT_ICONS.retake}"
+                alt=""
+              >
+              <span>Retake Quiz</span>
             </button>
 
           </div>

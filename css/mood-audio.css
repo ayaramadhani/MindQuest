@@ -466,3 +466,238 @@
     height: 18px;
   }
 }
+/* =========================================
+   MOOD TRACKER - PNG ICONS
+========================================= */
+
+/* Ikon pada pilihan mood */
+.mood-option-icon img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Ikon pada riwayat mood */
+.mood-entry-icon img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* =========================================
+   MOOD TRACKER - WARNA KARTU PILIHAN MOOD
+========================================= */
+
+/* Warna dasar kotak pilihan mood */
+.mood-option-card {
+  background-color: var(--color-sage);
+  border: 1px solid var(--color-border);
+  color: var(--color-dark-green);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Efek ketika kursor diarahkan ke kotak */
+.mood-option:hover .mood-option-card {
+  background-color: var(--color-sage-hover);
+}
+
+/* Penanda ketika mood dipilih */
+.mood-option-input:checked + .mood-option-card {
+  background-color: var(--color-sage-hover);
+  border: 2px solid var(--color-dark-green);
+
+  box-shadow: 0 0 0 2px var(--color-dark-green-overlay);
+}
+
+/* Efek fokus untuk aksesibilitas */
+.mood-option-input:focus-visible + .mood-option-card {
+  outline: 2px solid var(--color-dark-green);
+  outline-offset: 3px;
+}
+
+/* ---------- Audio Relaxation ---------- */
+
+.audio-track-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audio-track {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: center;
+  padding: 20px;
+  border: 2px solid transparent;
+}
+
+.audio-track-playing {
+  border-color: var(--color-dark-green, #344E41);
+}
+
+.audio-track-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-cream, #F5F0E6);
+}
+
+.audio-track-title {
+  margin: 0;
+  font-family: var(--font-heading, "Poppins", sans-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.audio-track-description {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.audio-track .audio-button {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+
+/* Gambar PNG pada ikon audio */
+.audio-track-icon img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* =========================================
+   AUDIO TRACK - COMPACT TITLE SPACING
+========================================= */
+
+/* Merapatkan ikon dengan judul audio */
+.audio-track {
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 8px;
+  row-gap: 4px;
+  align-items: center;
+}
+
+/* Menjaga teks tetap berada dalam kolomnya */
+.audio-track-body {
+  min-width: 0;
+}
+
+/* Judul audio */
+.audio-track-title {
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Deskripsi audio */
+.audio-track-description {
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+/* Ukuran ikon PNG */
+.audio-track-icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Tombol tetap berada di bawah */
+.audio-track .audio-button {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* =========================================
+   AUDIO TRACK - FINAL LAYOUT FIX
+========================================= */
+
+.audio-track {
+  display: grid;
+
+  grid-template-columns: 56px minmax(0, 1fr);
+
+  grid-template-areas:
+    "icon title"
+    "description description"
+    "button button";
+
+  column-gap: 8px;
+  row-gap: 12px;
+
+  align-items: center;
+}
+
+/* Ikon PNG */
+.audio-track-icon {
+  grid-area: icon;
+
+  display: grid;
+  place-items: center;
+
+  width: 56px;
+  height: 56px;
+}
+
+.audio-track-icon img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Membuat elemen judul dan deskripsi
+   menjadi bagian langsung dari grid */
+.audio-track-body {
+  display: contents;
+}
+
+/* Judul audio */
+.audio-track-title {
+  grid-area: title;
+
+  min-width: 0;
+  margin: 0;
+
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+/* Deskripsi menggunakan lebar penuh kartu */
+.audio-track-description {
+  grid-area: description;
+
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+
+  margin: 0;
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+/* Tombol Putar */
+.audio-track .audio-button {
+  grid-area: button;
+
+  width: 100%;
+  margin: 0;
+}

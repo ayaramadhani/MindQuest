@@ -451,3 +451,103 @@
   }
 
 }
+
+/* =========================================
+   PERSONALITY RESULT - LOCAL IMAGE
+========================================= */
+
+.mq-personality-img {
+  display: block;
+
+  width: 140px;
+  height: 140px;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* =========================================
+   RESULTS - PERSONALITY HERO ALIGNMENT
+   Menjaga gambar dan informasi tetap sejajar
+========================================= */
+
+.mq-result-hero {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Area ilustrasi */
+.mq-illustration-wrapper {
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Gambar kepribadian */
+.mq-illustration-wrapper .mq-personality-img {
+  display: block;
+  width: 140px;
+  height: 140px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Area teks profil */
+.mq-result-hero > div:last-child {
+  min-width: 0;
+}
+
+@media (max-width: 560px) {
+  .mq-result-hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .mq-result-hero > div:last-child {
+    width: 100%;
+  }
+}
+/* =========================================
+   RESULTS PAGE - PNG ICONS
+========================================= */
+
+/* Ikon Empty State */
+.mq-empty-icon img {
+  display: block;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Ikon pada judul Kekuatan dan Saran */
+.mq-detail-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.mq-detail-heading img {
+  display: block;
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Ikon tombol Retake Quiz */
+.mq-retake-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}

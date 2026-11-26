@@ -25,13 +25,37 @@ const CHART_MAX_POINTS = 14;
  * Ganti `icon` dengan <img> dari assets/images/mood/ jika ilustrasi sudah siap.
  */
 export const MOODS = [
-  { id: 'happy', label: 'Senang', icon: '😊', score: 5 },
-  { id: 'calm', label: 'Tenang', icon: '😌', score: 4 },
-  { id: 'neutral', label: 'Biasa', icon: '😐', score: 3 },
-  { id: 'sad', label: 'Sedih', icon: '😔', score: 2 },
-  { id: 'stressed', label: 'Stres', icon: '😣', score: 1 },
+  {
+    id: 'happy',
+    label: 'Senang',
+    icon: 'assets/images/mood/mood-happy.png',
+    score: 5
+  },
+  {
+    id: 'calm',
+    label: 'Tenang',
+    icon: 'assets/images/mood/mood-calm.png',
+    score: 4
+  },
+  {
+    id: 'neutral',
+    label: 'Biasa',
+    icon: 'assets/images/mood/mood-neutral.png',
+    score: 3
+  },
+  {
+    id: 'sad',
+    label: 'Sedih',
+    icon: 'assets/images/mood/mood-sad.png',
+    score: 2
+  },
+  {
+    id: 'stressed',
+    label: 'Stres',
+    icon: 'assets/images/mood/mood-stressed.png',
+    score: 1
+  },
 ];
-
 let initialized = false;
 let editingId = null;
 let chartInstance = null;
@@ -182,7 +206,9 @@ function buildLayout(root) {
       <label class="mood-option">
         <input class="mood-option-input" type="radio" name="mood" value="${mood.id}">
         <span class="mood-option-card">
-          <span class="mood-option-icon" aria-hidden="true">${mood.icon}</span>
+          <span class="mood-option-icon" aria-hidden="true">
+            <img src="${mood.icon}" alt="">
+          </span>
           <span class="mood-option-label">${mood.label}</span>
         </span>
       </label>`
@@ -384,7 +410,13 @@ function createHistoryItem(entry) {
   const icon = document.createElement('span');
   icon.className = 'mood-entry-icon';
   icon.setAttribute('aria-hidden', 'true');
-  icon.textContent = mood.icon;
+
+  const iconImage = document.createElement('img');
+  iconImage.src = mood.icon;
+  iconImage.alt = '';
+  iconImage.loading = 'lazy';
+
+  icon.appendChild(iconImage);
 
   const body = document.createElement('div');
   body.className = 'mood-entry-body';

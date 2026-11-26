@@ -32,28 +32,28 @@ export const TRACKS = [
     title: 'Hujan Lembut',
     description: 'Suara hujan yang stabil untuk menenangkan pikiran.',
     src: 'assets/audio/rain-soft.mp3',
-    icon: '🌧️',
+    icon: 'assets/images/audio/icon-rain.png',
   },
   {
     id: 'forest',
     title: 'Pagi di Hutan',
     description: 'Kicau burung dan angin di antara pepohonan.',
     src: 'assets/audio/forest-morning.mp3',
-    icon: '🌲',
+    icon: 'assets/images/audio/icon-forest.png',
   },
   {
     id: 'ocean',
     title: 'Ombak Pantai',
     description: 'Ombak pelan yang berulang untuk rileks atau fokus.',
     src: 'assets/audio/ocean-waves.mp3',
-    icon: '🌊',
+    icon: 'assets/images/audio/icon-ocean.png',
   },
   {
     id: 'piano',
     title: 'Piano Tenang',
     description: 'Piano instrumental dengan tempo lambat.',
     src: 'assets/audio/calm-piano.mp3',
-    icon: '🎹',
+    icon: 'assets/images/audio/icon-piano.png',
   },
 ];
 
@@ -142,8 +142,9 @@ function buildLayout(root) {
   const cards = TRACKS.map(
     (track) => `
       <li class="audio-track" data-track-id="${track.id}">
-        <span class="audio-track-icon" aria-hidden="true">${track.icon}</span>
-        <div class="audio-track-body">
+       <span class="audio-track-icon" aria-hidden="true">
+        <img src="${track.icon}" alt="">
+      </span>
           <h3 class="audio-track-title">${track.title}</h3>
           <p class="audio-track-description">${track.description}</p>
         </div>

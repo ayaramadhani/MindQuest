@@ -327,3 +327,66 @@
   }
 
 }
+
+/* ==========================================
+   QUIZ - PNG ICONS
+========================================== */
+
+/* Ikon informasi pada halaman pengantar */
+.quiz-info-icon img {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* Ikon ketika kuis selesai */
+.quiz-completed-icon img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+/* Ikon pemberitahuan error */
+.quiz-error-icon img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* ==========================================
+   QUIZ - CENTER ICON
+========================================== */
+
+/* Membuat posisi ikon selesai dan error berada di tengah */
+#quiz-view .quiz-completed-icon,
+#quiz-view .quiz-error-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: 0 auto 1.25rem;
+
+  text-align: center;
+}
+
+/* Ukuran ikon ketika kuis selesai */
+#quiz-view .quiz-completed-icon img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Ukuran ikon ketika terjadi error */
+#quiz-view .quiz-error-icon img {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto;
+}

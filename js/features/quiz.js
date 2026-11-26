@@ -22,6 +22,18 @@ import { showView } from "../navigation.js";
 
 
 // ==========================================
+// ICON PNG QUIZ
+// ==========================================
+
+const QUIZ_ICONS = {
+  questions: "assets/icons/icon-questions.png",
+  choices: "assets/icons/icon-choices.png",
+  reflection: "assets/icons/icon-reflection.png",
+  completed: "assets/icons/icon-completed.png",
+  error: "assets/icons/icon-error.png"
+};
+
+// ==========================================
 // KONSTANTA DAN STATE QUIZ
 // ==========================================
 
@@ -184,17 +196,23 @@ function renderQuizIntro() {
         <div class="quiz-intro-info">
 
           <div class="quiz-info-item">
-            <span class="quiz-info-icon">📝</span>
+            <span class="quiz-info-icon" aria-hidden="true">
+              <img src="${QUIZ_ICONS.questions}" alt="">
+            </span>
             <span>16 Pertanyaan</span>
           </div>
 
           <div class="quiz-info-item">
-            <span class="quiz-info-icon">🎯</span>
+           <span class="quiz-info-icon" aria-hidden="true">
+            <img src="${QUIZ_ICONS.choices}" alt="">
+          </span>
             <span>4 Pilihan Jawaban</span>
           </div>
 
           <div class="quiz-info-item">
-            <span class="quiz-info-icon">🌱</span>
+            <span class="quiz-info-icon" aria-hidden="true">
+              <img src="${QUIZ_ICONS.reflection}" alt="">
+            </span>
             <span>Refleksi Diri</span>
           </div>
 
@@ -585,7 +603,10 @@ function renderQuizCompleted() {
       <div class="mq-card quiz-completed mq-fade-in">
 
         <div class="quiz-completed-icon">
-          🎉
+          <img
+            src="${QUIZ_ICONS.completed}"
+            alt=""
+          >
         </div>
 
         <span class="mq-badge">
@@ -647,7 +668,10 @@ function renderQuizError(
       <div class="mq-card quiz-error mq-fade-in">
 
         <div class="quiz-error-icon">
-          ⚠️
+          <img
+            src="${QUIZ_ICONS.error}"
+            alt=""
+          >
         </div>
 
         <h2 id="quiz-title">
