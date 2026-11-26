@@ -9,7 +9,7 @@
 const FEATURE_CARDS = [
   {
     view: "quiz",
-    icon: "✦",
+    icon: "assets/icons/icon_quiz.png",
     label: "KENALI DIRI",
     title: "Kuis Kepribadian",
     description:
@@ -18,7 +18,7 @@ const FEATURE_CARDS = [
   },
   {
     view: "results",
-    icon: "◈",
+    icon: "assets/icons/icon_hasil.png",
     label: "PAHAMI DIRI",
     title: "Hasil Kepribadian",
     description:
@@ -27,7 +27,7 @@ const FEATURE_CARDS = [
   },
   {
     view: "mood",
-    icon: "☼",
+    icon: "assets/icons/icon_mood.png",
     label: "SADARI PERASAAN",
     title: "Mood Tracker",
     description:
@@ -36,7 +36,7 @@ const FEATURE_CARDS = [
   },
   {
     view: "challenge",
-    icon: "✳",
+    icon: "assets/icons/icon_challenge.png",
     label: "BERTUMBUH",
     title: "Tantangan Kecil",
     description:
@@ -45,7 +45,7 @@ const FEATURE_CARDS = [
   },
   {
     view: "audio",
-    icon: "♫",
+    icon: "assets/icons/icon_audio.png",
     label: "AMBIL JEDA",
     title: "Audio Relaksasi",
     description:
@@ -53,7 +53,6 @@ const FEATURE_CARDS = [
     action: "Dengarkan audio"
   }
 ];
-
 /**
  * Menampilkan Home Page MindQuest.
  */
@@ -183,7 +182,7 @@ export function renderHome() {
             <div class="home-card-top">
 
               <span class="home-card-icon" aria-hidden="true">
-                ${card.icon}
+                <img src="${card.icon}" alt="">
               </span>
 
               <span class="home-card-arrow" aria-hidden="true">

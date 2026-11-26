@@ -132,6 +132,22 @@
 
 /* HERO SECTION */
 
+/* HOME PAGE CONTENT SPACING */
+
+#home-view {
+  box-sizing: border-box;
+
+  /* Memberikan jarak pada sisi kiri dan kanan konten */
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+
+  padding-bottom: clamp(3rem, 5vw, 4rem);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
 .home-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
@@ -139,16 +155,25 @@
   gap: clamp(2rem, 5vw, 4rem);
 
   padding: clamp(2rem, 5vw, 4rem);
-  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: clamp(10rem, 14vw, 12rem);
 
+  /* Efek glassmorphism lebih transparan */
   background: linear-gradient(
     120deg,
-    var(--color-white),
-    var(--color-cream)
+    rgba(255, 255, 255, 0.48),
+    rgba(245, 240, 230, 0.52)
   );
 
-  border: 1px solid var(--color-border);
+  backdrop-filter: blur(16px) saturate(115%);
+  -webkit-backdrop-filter: blur(16px) saturate(115%);
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: calc(var(--radius-card) * 1.35);
+
+  box-shadow:
+    0 8px 32px rgba(52, 78, 65, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
   overflow: hidden;
 }
 
@@ -455,6 +480,15 @@
   font-size: 1.4rem;
 }
 
+/* PNG ICON UNTUK HOME FEATURE CARDS */
+
+.home-card-icon img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
 .home-card-arrow {
   font-size: 1.2rem;
   color: var(--color-text-muted);
@@ -573,4 +607,46 @@
     min-height: 220px;
   }
 
+  /* =========================================
+   HOME PAGE BACKGROUND
+   Background mencakup area antara navbar
+   dan hero section
+========================================= */
+}
+
+/* Warna teks heading di atas lima kartu fitur */
+.home-section-heading h2,
+.home-section-description {
+  color: var(--color-cream);
+}
+
+
+
+.mq-main:has(#home-view:not([hidden])) {
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+
+  background-image:
+    linear-gradient(
+      rgba(245, 240, 230, 0.28),
+      rgba(245, 240, 230, 0.28)
+    ),
+    url("../assets/images/home/bg2.jpg");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* =========================================
+   FOOTER - GLASS EFFECT
+========================================= */
+
+footer {
+  background-color: rgba(245, 240, 230, 0.72);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
 }
